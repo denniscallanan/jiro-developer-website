@@ -11,3 +11,9 @@ function toggleLogin()
 		loginButton.innerHTML = "X";
 	}
 }
+
+document.querySelector("main").addEventListener("click", function()
+{
+	login.classList.remove("visible");
+	loginButton.innerHTML = "Login";
+});

@@ -44,6 +44,7 @@
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
 	cursor: pointer;
+	margin-right: 14px;
 }
 
 #devheader > div {
