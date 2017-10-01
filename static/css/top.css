@@ -1,0 +1,15 @@
+#topButton {
+	position: fixed;
+	bottom: -60px;
+	right: 30px;
+	padding: 12px;
+	border: 2px solid #0c73aa;
+	border-radius: 5px;
+	color: #0c73aa;
+	transition: bottom 0.3s;
+	font-family: "Proxima Nova";
+}
+
+#topButton.visible {
+	bottom: 30px;
+}

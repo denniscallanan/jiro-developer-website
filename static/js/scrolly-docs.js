@@ -1,4 +1,4 @@
-function scrolly()
+function scrolly_docs()
 {
 	var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 	var list = document.querySelector(".docs-list");
@@ -16,5 +16,4 @@ function scrolly()
 	}
 }
 
-document.body.onscroll = scrolly;
-window.addEventListener("load", onscroll);
+document.addEventListener("scroll", scrolly_docs);
