@@ -1,0 +1,22 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+body {
+	font-family: 'proxima_nova_ltthin', Georgia, sans-serif;
+	font-weight: bold;
+}
+
+main {
+	margin-top: 14px;
+	padding-top: 28px;
+	border-top: 1px solid #eee;
+}
+
+.container {
+	width: 100%;
+	max-width: 1020px;
+	margin-left: auto;
+	margin-right: auto;
+}

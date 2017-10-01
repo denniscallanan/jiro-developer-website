@@ -1,0 +1,25 @@
+#devheader {
+	width: 100%;
+	max-width: 1108px;
+	margin: 14px auto;
+	line-height: 22px;
+	height: 24px;
+}
+
+#devheader img {
+	margin-left: 10px;
+	margin-right: 10px;
+	vertical-align: middle;
+}
+
+#devheader h1 {
+	display: inline-block;
+	font-size: 20px;
+	color: #0c73aa;
+	vertical-align: middle;
+}
+
+#devheader h1 span {
+	font-family: "Proxima Nova", Georgia, sans-serif;
+	color: #09527a;
+}
