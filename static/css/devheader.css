@@ -1,6 +1,7 @@
 #devheader-wrapper {
+	background: #f7f7f7;
 	border-top: 4px solid #0c73aa;
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #ddd;
 }
 
 #devheader {
@@ -27,4 +28,19 @@
 #devheader h1 span {
 	font-family: "Proxima Nova", Georgia, sans-serif;
 	color: #09527a;
+}
+
+#devheader h2 {
+	float: right;
+	width: 60px;
+	height: 24px;
+	background: #0c73aa;
+	color: white;
+	line-height: 24px;
+	font-size: 12px;
+	text-align: center;
+	letter-spacing: 1px;
+	transform: translateY(-18px);
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
 }
