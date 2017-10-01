@@ -1,9 +1,18 @@
+var user = "";
+var loggedIn = false;
+
+function hideLogin()
+{
+	var text = loggedIn ? user : "Login";
+	login.classList.remove("visible");
+	loginButton.innerHTML = text;
+}
+
 function toggleLogin()
 {
 	if (login.classList.contains("visible"))
 	{
-		login.classList.remove("visible");
-		loginButton.innerHTML = "Login";
+		hideLogin();
 	}
 	else
 	{
@@ -14,6 +23,12 @@ function toggleLogin()
 
 document.querySelector("main").addEventListener("click", function()
 {
-	login.classList.remove("visible");
-	loginButton.innerHTML = "Login";
+	hideLogin();
 });
+
+document.querySelector("#login .login").onclick = function()
+{
+	loggedIn = true;
+	user = username.value;
+	hideLogin();
+}
