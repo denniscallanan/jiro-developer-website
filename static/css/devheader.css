@@ -1,3 +1,8 @@
+#devheader-wrapper {
+	border-top: 4px solid #0c73aa;
+	border-bottom: 1px solid #eee;
+}
+
 #devheader {
 	width: 100%;
 	max-width: 1108px;
