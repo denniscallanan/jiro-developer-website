@@ -7,9 +7,9 @@
 #devheader {
 	width: 100%;
 	max-width: 1108px;
-	margin: 14px auto;
-	line-height: 22px;
-	height: 24px;
+	margin: 0px auto;
+	line-height: 50px;
+	height: 50px;
 }
 
 #devheader img {
@@ -40,7 +40,28 @@
 	font-size: 12px;
 	text-align: center;
 	letter-spacing: 1px;
-	transform: translateY(-18px);
+	transform: translateY(-4px);
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
+}
+
+#devheader > div {
+	float: right;
+	margin-right: 50px;
+}
+
+#devheader > div div {
+	display: inline-block;
+	height: 50px;
+	padding-left: 12px;
+	padding-right: 12px;
+	color: black;
+	cursor: pointer;
+	transition: background 0.3s;
+}
+
+#devheader > div .selected {
+	height: 47px;
+	border-bottom: 3px solid #666;
+	background: #ccc;
 }
