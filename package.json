@@ -1,4 +1,7 @@
 {
   "name": "JiroDevelopers",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "engines": {
+    "node": "6.11.3"
+  }
 }
