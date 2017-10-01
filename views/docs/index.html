@@ -5,15 +5,22 @@
 	<link rel="stylesheet" type="text/css" href="static/fonts/nova/fonts.min.css" />
 	<link rel="stylesheet" type="text/css" href="static/css/main.css">
 	<link rel="stylesheet" type="text/css" href="static/css/devheader.css">
+	<link rel="stylesheet" type="text/css" href="static/css/login.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
+	<div id="login">
+		<h2> Login </h2>
+		<input type="text" placeholder="Username">
+		<input type="password" placeholder="Password">
+		<button class="login">Login</button>
+		<button class="register">Register</button>
+	</div>
 	<div id="devheader-wrapper">
 		<div id="devheader">
 			<a href="//www.jiroplay.com"><img src="static/img/back.png"></a>
 			<h1><span>Jiro</span> Developers</h1>
-			<h2> Login </h2>
+			<h2 id="loginButton" onclick="toggleLogin();"> Login </h2>
 			<div>
 				<a href="/"><div> Home </div></a>
 				<div class="selected"> Docs </div>
@@ -24,6 +31,6 @@
 	<main class="container">
 		<h2> Documentation </h2>
 	</main>
-
 </body>
+<script src="static/js/login.js"></script>
 </html>
