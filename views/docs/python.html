@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Documentation - Jiro Developers</title>
+    <link rel="stylesheet" type="text/css" href="/static/fonts/nova/fonts.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/devheader.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/login.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/docs.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/top.css">
+    <!--<link href="/static/css/github.css" rel="stylesheet" type="text/css">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="login">
+        <h2> Login </h2>
+        <input type="text" placeholder="Username" id="username">
+        <input type="password" placeholder="Password" id="password">
+        <button class="login">Login</button>
+        <button class="register">Register</button>
+    </div>
+    <div id="devheader-wrapper">
+        <div id="devheader">
+            <a href="//www.jiroplay.com"><img src="/static/img/back.png"></a>
+            <h1><span>Jiro</span> Developers</h1>
+            <h2 id="loginButton" onclick="toggleLogin();"> Login </h2>
+            <div>
+                <a href="/"><div> Home </div></a>
+                <a href="/docs"><div class="selected"> Docs </div></a>
+            </div>
+        </div>
+    </div>
+    <main class="container">
+        <h2> Documentation </h2>
+        <div class="docs-list">
+            <div class="section">
+                <a href="#a_"><h1> Python API </h1></a>
+            </div>
+        </div>
+        <div class="docs-content">
+            <h1 id="a_"> Python API </h1>
+
+        </div>
+
+    </main>
+    <div id="topButton">
+        TOP
+    </div>
+    <!--<script src="/static/js/rainbow-xml.min.js"></script>-->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=xml"></script>
+</body>
+<script src="/static/js/login.js"></script>
+<script src="/static/js/scrolly-docs.js"></script>
+<script src="/static/js/scrolly-top.js"></script>
+</html>

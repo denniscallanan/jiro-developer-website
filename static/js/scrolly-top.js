@@ -12,4 +12,10 @@ function scrolly_top()
 	}
 }
 
+function top_click()
+{
+	window.location = "#";
+}
+
 document.addEventListener("scroll", scrolly_top);
+topButton.addEventListener("click", top_click);

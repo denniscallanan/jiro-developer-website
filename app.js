@@ -21,6 +21,14 @@ app.get('/docs', function(req, res) {
 	res.render('docs/index.html')
 })
 
+app.get('/docs/controller', function(req, res) {
+	res.render('docs/xml.html');
+})
+
+app.get('/docs/python-api', function(req, res) {
+	res.render('docs/python.html');
+})
+
 app.listen(process.env.PORT || 8001, function () {
 	console.log('Jiro developers app is running!')
 })

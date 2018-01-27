@@ -8,6 +8,7 @@
 	color: #0c73aa;
 	transition: bottom 0.3s;
 	font-family: "Proxima Nova";
+	cursor: pointer;
 }
 
 #topButton.visible {

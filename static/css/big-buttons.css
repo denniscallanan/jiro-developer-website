@@ -1,0 +1,32 @@
+.big-button {
+    display: inline-block;
+    padding: 0px 20px;
+    line-height: 57px;
+    background: #eee;
+    border-radius: 6px;
+    font-size: 16px;
+    margin: 5px 5px;
+    color: black;
+    border-bottom: 3px solid rgb(40, 144, 230);
+    border-bottom: 3px solid #3685af;
+    font-weight: 600;
+    font-family: "Proxima Nova";
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.big-button img {
+    transform: translateY(10px) translateX(-5px);
+    margin-right: 5px;
+}
+
+.big-button:hover {
+    color: #3685af;
+    background-color: #ddd;
+}
+
+.big-button:active {
+    border-bottom: 3px solid #777;
+    background: #bbb;
+    color: #777;
+    transition: none;
+}

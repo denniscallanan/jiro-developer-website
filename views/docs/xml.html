@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Documentation - Jiro Developers</title>
+    <link rel="stylesheet" type="text/css" href="/static/fonts/nova/fonts.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/devheader.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/login.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/docs.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/top.css">
+    <!--<link href="/static/css/github.css" rel="stylesheet" type="text/css">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="login">
+        <h2> Login </h2>
+        <input type="text" placeholder="Username" id="username">
+        <input type="password" placeholder="Password" id="password">
+        <button class="login">Login</button>
+        <button class="register">Register</button>
+    </div>
+    <div id="devheader-wrapper">
+        <div id="devheader">
+            <a href="//www.jiroplay.com"><img src="/static/img/back.png"></a>
+            <h1><span>Jiro</span> Developers</h1>
+            <h2 id="loginButton" onclick="toggleLogin();"> Login </h2>
+            <div>
+                <a href="/"><div> Home </div></a>
+                <a href="/docs"><div class="selected"> Docs </div></a>
+            </div>
+        </div>
+    </div>
+    <main class="container">
+        <h2> Documentation </h2>
+        <div class="docs-list">
+            <div class="section">
+                <a href="#a_controller"><h1> XML Controller </h1></a>
+                <a href="#a_rows_columns"><div> Rows & Columns </div></a>
+                <a href="#a_text"><div> Text </div></a>
+                <a href="#a_buttons"><div> Buttons </div></a>
+                <a href="#a_images"><div> Images </div></a>
+                <a href="#a_cell_props"><div> More Cell Properties</div></a>
+            </div>
+            <div class="section">
+                <a href="#a_bindings"><h1> Bindings </h1></a>
+                <a href="#a_get_bindings"><div> Get Bindings </div></a>
+                <a href="#a_set_bindings"><div> Set Bindings </div></a>
+                <a href="#a_twoway_bindings"><div> Two-way Bindings </div></a>
+            </div>
+        </div>
+        <div class="docs-content">
+            <h1 id="a_controller"> XML Controller </h1>
+
+            <p> Jiro uses the XML format to create controllers for your game.</p>
+            <p> In this topic we will be learning how to create our own controllers </p>
+            
+            <p> Begin by creating a new xml file for your controller, and change the id to whatever you wish. </p>
+
+            <xmp class="prettyprint"><controller id="main">
+
+</controller></xmp>
+
+            <p> The API allows you to switch controllers by id. </p>
+
+            <h2 id="a_rows_columns">Rows & Columns</h2> 
+
+            <p> Rows and columns are used to position elements and change the size of their contents. Rows and columns can be nested.</p>
+            
+            <p> The span of each row or column defaults to a weight of 1, but you can change this using the span tag. </p>
+
+            <xmp class="prettyprint"><controller id="main">
+    <row>
+
+    </row>
+    <row span="2">
+        <col span="3">
+
+        </col>
+        <col span="2">
+
+        </col>
+    </row>
+</controller></xmp>
+
+            <p> On rows you can also set <span class="inline-code">span="content"</span> which sets its height to the height of its content.<br>This feature will be also added to columns in the future.</p>
+
+            <h2 id="a_text"> Text </h2>
+
+            <p> Use the text tag inside a cell (row or column) to add text. </p>
+
+            <xmp class="prettyprint"><controller id="main">
+    <row>
+        <text size="24" weight="bold">
+            This is some bold text with a font size of 24.
+            All the weight options are "thin", "light",
+            "regular", "medium", "bold" and "black".
+        </text>
+    </row>
+</controller></xmp>
+
+            <h2 id="a_buttons"> Buttons </h2>
+
+            <p> Any cell can be turned into a button by simply adding a button id. </p>
+
+            <xmp class="prettyprint"><row btnid="mybutton1"> ... </row></xmp>
+            <xmp class="prettyprint"><col btnid="mybutton2"> ... </col></xmp>
+
+            <p> The API allows you to hook up click handlers to a button id. </p>
+
+            <h2 id="a_images"> Images </h2>
+
+            <p> Images are very easy to add. They stay centered inside its cell and you can use the scale attribute to change its size. </p>
+
+            <xmp class="prettyprint"><controller id="main">
+    <row>
+        <img src="myimage" scale="0.5"></img>
+    </row>
+</controller></xmp>
+
+            <p> You must use the API to bind a src to an image file. </p>
+
+            <p> You can set <span class="inline-code">stretch="cell"</span> to make the image match its cell size.</p> 
+
+            <p> Images will always keep their aspect ratio, even if they are stretched. </p>
+
+            <h2 id="a_cell_props">More Cell Properties</h2>
+
+            <p> You can set the background color of a cell by doing the following:</p>
+
+            <xmp class="prettyprint"><row bgcolor="#eee"> ... </row></xmp>
+
+            <p> To add padding to a cell simply do the following:</p>
+
+            <xmp class="prettyprint"><col padding="4"> ... </col></xmp>
+
+            <p> You can set the padding for individual sides aswell (top, left, bottom, right): </p>
+
+            <xmp class="prettyprint"><col padding="4 0 2 0"> ... </col></xmp>
+
+            <p> You can use the border attributes to add a border to a cell:</p>
+
+            <xmp class="prettyprint"><row bordersize="1" bordercolor="#eee"> ... </row></xmp>
+
+            <p>In the future <span class="inline-code">bgimage</span> support will be availible.</p>
+
+            <h1 id="a_bindings"> Bindings </h1>
+
+            <h2 id="a_get_bindings"> Get Bindings </h2>
+
+            <p> Get bindings allow you to access the attributes and content of an element using the API. </p>
+
+            <xmp class="prettyprint"><controller id="main">
+    <col>
+        <img src="myimage" getbinding="my_image_binding"></img>
+    </col>
+    <col>
+        <text getbinding="my_text_binding"> This is some readable text </text>
+    </col>
+</controller></xmp>
+
+            <p> The binding name is used (<span class="inline-code">my_image_binding</span>) to access an element. </p>
+
+            <p> LINK::See the API for more </p>
+
+            <h2 id="a_set_bindings"> Set Bindings </h2>
+            
+            <p> Set bindings allow you to modify the attributes and content of an element using the API. </p>
+
+            <xmp class="prettyprint"><controller id="main">
+    <col>
+        <img src="myimage" setbinding="my_image_binding"></img>
+    </col>
+    <col>
+        <text setbinding="my_text_binding"> This is some modifiable text </text>
+    </col>
+</controller></xmp>
+
+            <p> The elements can be modified using their binding name. </p>
+
+            <p> LINK::See the API for more </p>
+
+            <h2 id="a_twoway_bindings"> Two-way Bindings </h2>
+
+            <p> Two way bindings allow you to read AND modify the attributes and content of an element. </p>
+
+            <p>They are just as easy to create:</p>
+
+            <xmp class="prettyprint"><col>
+    <img src="myimage" binding="my_first_two_way_binding"></img>
+</col></xmp>
+        <xmp class="prettyprint"><col>
+    <text binding="my_second_two_way_binding"> This is some readable and modifiable text </text>
+</col></xmp>     
+
+            <br><br>
+
+            <p> You've reached the end of this article and should now have learned everything you need know to create a controller for your Jiro game! </p>
+
+            <br><br>
+
+        </div>
+
+    </main>
+    <div id="topButton">
+        TOP
+    </div>
+    <!--<script src="/static/js/rainbow-xml.min.js"></script>-->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=xml"></script>
+</body>
+<script src="/static/js/login.js"></script>
+<script src="/static/js/scrolly-docs.js"></script>
+<script src="/static/js/scrolly-top.js"></script>
+</html>
