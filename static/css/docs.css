@@ -73,6 +73,14 @@
 	left: 294px;
 }
 
+.docs-content ul {
+	padding-top: 20px;
+}
+
+.docs-content li {
+	padding-top: 10px;
+}
+
 .prettyprint {
 	border: 1px solid #eee;
 	padding: 8px;
@@ -87,4 +95,32 @@
     font-family: monospace;
 	font-size: 12px;
 	font-weight: 600;
+}
+
+.future {
+	position: relative;
+	opacity: 1;
+	transform: scale(0.8);
+}
+
+.future > * {
+	opacity: 0.4;
+}
+
+.future::after {
+	content: 'This feature is not yet available!';
+	display: none;
+	position: absolute;
+	bottom: 30px;
+	left: 0px;
+	background:darkred;
+	padding: 8px;
+	color: white;
+	z-index: 9999;
+	opacity: 0.8;
+	border-radius: 5px;
+}
+
+.future:hover::after {
+	display: block;
 }

@@ -35,11 +35,131 @@
         <div class="docs-list">
             <div class="section">
                 <a href="#a_"><h1> Python API </h1></a>
+                <a href="#a_setup"><div> Getting Started </div></a>
+                <a href="#a_server_options"><div> Server options</div></a>
+            </div>
+            <div class="section">
+                <a href="#a_controllers"><h1>Controllers</h1></a>
+                <a href="#a_importing_controllers"><div> Importing controllers </div></a>
+                <a href="#a_switching_controllers"><div> Switching controllers </div></a>
+            </div>
+            <div class="section">
+                <a href="#a_bindings"><h1> Controller bindings</h1></a>
+                <a href="#a_set_bindings"><div>Set bindings</div></a>
+                <a href="#a_get_bindings"><div>Get bindings</div></a>
+                <a href="#a_two_way_bindings"><div>Two-way bindings</div></a>
+            </div>
+            <div class="section">
+                <a href="#a_events"><h1> Event handlers</h1></a>
+                <a href="#a_button_events"><div>Button events</div></a>
             </div>
         </div>
         <div class="docs-content">
             <h1 id="a_"> Python API </h1>
+            <h2 id="a_setup">Getting Started</h2>
+            <p>Once you've downloaded the API for python you should be able to import the module:</p>
+            <xmp class="prettyprint">import jgsapi</xmp>
+            <p>You must now create a game server that your phone can connect to.</p>
+            <xmp class="prettyprint">jiro = jgsapi.GameServer()</xmp>
+            <p>That should be enough to connect to the game from your phone.</p>
+            <h2 id="a_server_options">Server options</h2>
+            <p>You can pass server options into the GameServer constructor.</p>
+            <xmp class="prettyprint">jiro = jgsapi.GameServer({'max-players': 8})</xmp>
+            <h1 id="a_controllers"> Controllers </h1>
+            <h2 id="a_importing_controllers">Importing controllers</h2>
+            <p> Jiro uses XML files to create controllers. </p>
+            <p> If you haven't created a controller yet you can follow the tutorial LINK::here</p>
+            <p> Assuming your controllers are in the "controllers" directory, you can import them by doing the following:</p>
+            <xmp class="prettyprint">jiro.importController("controllers/mycontroller1.xml")
+jiro.importController("controllers/mycontroller2.xml")
+# etc.</xmp>
+            <h2 id="a_switching_controllers"> Switching controllers</h2>
+            <p> To switch controllers, use the following code: </p>
+            <xmp class="prettyprint">jiro.switchController("mycontroller1")</xmp>
+            <p> The controller id (defined in the XML document) is passed into the function.</p>
+            <p> You can also change the controller of a specific player or a list of players.</p>
+            <xmp class="prettyprint">jiro.switchController("mycontroller1", somePlayer)
+jiro.switchController("mycontroller2", [somePlayer, someOtherPlayer, anotherPlayer])</xmp>
+            <h1 id="a_bindings"> Controller bindings </h1>
+            <p> Your controllers may contain bindings. </p>
+            <p> Get bindings allow you to retrieve xml information from your controller and set bindings allow you to modify the attributes and content of controller elements.</p>
+            <p> Link::Click here to learn how controller bindings work in XML.</p> 
+            <h2 id="a_set_bindings">Set bindings</h2>
+            <xmp class="prettyprint"><controller id="example">
+    <row bgcolor="#eee" setbinding="somerow">
+        <text setbinding="sometext">This is some text!</text>
+    </row>
+</controller></xmp>
+            <p> Pass in the controller and binding names into the following function to get the binding.</p>
+            <xmp class="prettyprint">textbinding = jiro.binding("example", "sometext")</xmp>
+            <p> Use the following code to change the content of a binding.</p>
+            <xmp class="prettyprint">textbinding.setContent("This is some new text!")</xmp>
+            <p> This is how to change the attributes of a binding:</p>
+            <xmp class="prettyprint">rowbinding = jiro.binding("example", "somerow")
+rowbinding.setAttribute("bgcolor", "#ff0000") #red</xmp>
+            <p> You can also change binding data of a specific player.</p>
+            <xmp class="prettyprint">textbinding.setContent("Hello, Player!", somePlayer)</xmp>
+            <xmp class="prettyprint">rowbinding.setAttribute("bgcolor", "#00ff00", somePlayer) #green</xmp> 
 
+</controller></xmp>
+            <h2 id="a_get_bindings">Get bindings</h2>
+            <xmp class="prettyprint"><controller id="example">
+    <row bgcolor="#eee" getbinding="somerow">
+        <text getbinding="sometext">This is some text!</text>
+    </row>
+</controller></xmp>
+            <p> You can get get bindings the same way you get set bindings: (that's a tongue twister!) </p>
+            <xmp class="prettyprint">mybinding = jiro.binding("example", "sometext")</xmp>
+            <p> We can now access the content of that element.</p>
+            <xmp class="prettyprint">print mybinding.getDefaultContent();
+# output: This is some text!</xmp>
+            <p>You can also get the attributes of an element.</p>
+            <xmp class="prettyprint">mybinding = jiro.binding("example", "somerow")
+print somerow.getDefaultAttribute("bgcolor")
+# output: #eee</xmp>
+            <p>The above examples only retrieve the default data in the XML file. If the data gets changed using set bindings we must access the data like this:</p>
+            <xmp class="prettyprint">mybinding.getCurrentContent() </xmp>
+            <xmp class="prettyprint">mybinding.getCurrentAttribute("bgcolor")</xmp>
+            <p>To retrieve binding data from a specific player you can do this:</p>
+            <xmp class="prettyprint">mybinding.getCurrentContent(player)</xmp>
+            <xmp class="prettyprint">mybinding.getCurrentAttribute("bgcolor", player)</xmp>
+            <p></p>
+
+            <h2 id="a_two_way_bindings">Two-way bindings</h2>
+            <p>You can get two-way bindings the same way as any other binding:</p>
+            <xmp class="prettyprint">mybinding = jiro.binding("controllerID", "bindingName")</xmp>
+            <p>You can both get and set data with two-way bindings.</p>
+            <p>Look at get bindings and set bindings above for examples.</p>
+            
+</xmp>
+
+            <h1 id="a_events"> Event handlers</h1>
+            <p> Event handlers are very important when you are creating games. </p>
+            <p> The Jiro API contains many events that you can listen to.</p>
+            <!--<p> To add an event listener call the <span class="inline-code">addEventListener</span> function with an event type and a callback.</p>
+            <xmp class="prettyprint">jiro.addEventListener("eventName", callback)</xmp>-->
+            <h2 id="a_button_events"></h2>
+            <p> There are 5 events available for buttons:</p>
+            <p><span class="inline-code">"tap"</span>
+            <span class="inline-code">"tapStart"</span>
+            <span class="inline-code">"tapEnd"</span>
+            <span class="future"><span class="inline-code">"holdStart"</span>
+            <span class="inline-code">"holdEnd"</span></span></p>
+            <p>Before you add an event listener to a button you must retrieve it using the controller and button ids.</p>
+            <xmp class="prettyprint"><controller id="mycontroller">
+    <row>
+        <button id="mybutton"><text>Tap me!</text></button>
+    </row>
+</controller></xmp>
+            <xmp class="prettyprint">button = jiro.getButton("mycontroller", "mybutton")</xmp>
+            <p>Now that that's done you should be able to add event listeners. </p>
+            <p>To add an event listener call the <span class="inline-code">addEventListener</span> function with the event type and a callback.</p>
+            <xmp class="prettyprint">button.addEventListener("eventType", callback)</xmp>
+            <p> Example: </p>
+            <xmp class="prettyprint">def tapEvent(event):
+    print event.player.displayName + " just tapped me!"
+
+button.addEventListener("tap", tapEvent)</xmp>
         </div>
 
     </main>
@@ -47,7 +167,7 @@
         TOP
     </div>
     <!--<script src="/static/js/rainbow-xml.min.js"></script>-->
-    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=xml"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=python&lang=xml"></script>
 </body>
 <script src="/static/js/login.js"></script>
 <script src="/static/js/scrolly-docs.js"></script>
