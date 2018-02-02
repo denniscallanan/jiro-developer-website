@@ -138,7 +138,7 @@ print somerow.getDefaultAttribute("bgcolor")
             <p> The Jiro API contains many events that you can listen to.</p>
             <!--<p> To add an event listener call the <span class="inline-code">addEventListener</span> function with an event type and a callback.</p>
             <xmp class="prettyprint">jiro.addEventListener("eventName", callback)</xmp>-->
-            <h2 id="a_button_events"></h2>
+            <h2 id="a_button_events">Button Events</h2>
             <p> There are 5 events available for buttons:</p>
             <p><span class="inline-code">"tap"</span>
             <span class="inline-code">"tapStart"</span>
@@ -147,8 +147,8 @@ print somerow.getDefaultAttribute("bgcolor")
             <span class="inline-code">"holdEnd"</span></span></p>
             <p>Before you add an event listener to a button you must retrieve it using the controller and button ids.</p>
             <xmp class="prettyprint"><controller id="mycontroller">
-    <row>
-        <button id="mybutton"><text>Tap me!</text></button>
+    <row btnid="mybutton">
+        <text>Tap me!</text>
     </row>
 </controller></xmp>
             <xmp class="prettyprint">button = jiro.getButton("mycontroller", "mybutton")</xmp>

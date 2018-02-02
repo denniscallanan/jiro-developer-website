@@ -74,7 +74,8 @@
 }
 
 .docs-content ul {
-	padding-top: 20px;
+	padding-top: 5px;
+	margin-left: 20px;
 }
 
 .docs-content li {
@@ -100,11 +101,10 @@
 .future {
 	position: relative;
 	opacity: 1;
-	transform: scale(0.8);
 }
 
 .future > * {
-	opacity: 0.4;
+	opacity: 0.5;
 }
 
 .future::after {

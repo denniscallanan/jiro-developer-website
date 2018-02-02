@@ -90,13 +90,20 @@
 
             <xmp class="prettyprint"><controller id="main">
     <row>
-        <text size="24" weight="bold">
+        <text size="24" weight="bold" color="#ff0000">
             This is some bold text with a font size of 24.
             All the weight options are "thin", "light",
             "regular", "medium", "bold" and "black".
         </text>
     </row>
 </controller></xmp>
+
+            <p> Default values:</p>
+            <ul>
+                <li><span class="inline-code">size=""</span> </li>
+                <li><span class="inline-code">weight=""</span> </li>
+                <li><span class="inline-code">color="#000000"</span> (black)</li>
+            </ul>
 
             <h2 id="a_buttons"> Buttons </h2>
 
@@ -117,9 +124,9 @@
     </row>
 </controller></xmp>
 
-            <p> You must use the API to bind a src to an image file. </p>
+            <p> You must use the API to bind a source to the image name. </p>
 
-            <p> You can set <span class="inline-code">stretch="cell"</span> to make the image match its cell size.</p> 
+            <p class="future"><span> You can set <span class="inline-code">stretch="cell"</span> to make the image match its cell size. </span></p> 
 
             <p> Images will always keep their aspect ratio, even if they are stretched. </p>
 
@@ -128,6 +135,10 @@
             <p> You can set the background color of a cell by doing the following:</p>
 
             <xmp class="prettyprint"><row bgcolor="#eee"> ... </row></xmp>
+
+            <div class="future"><p> You can also set a background image: </p>
+
+            <xmp class="prettyprint"><row bgimage="image"> ... </row></xmp></div>
 
             <p> To add padding to a cell simply do the following:</p>
 
@@ -140,8 +151,6 @@
             <p> You can use the border attributes to add a border to a cell:</p>
 
             <xmp class="prettyprint"><row bordersize="1" bordercolor="#eee"> ... </row></xmp>
-
-            <p>In the future <span class="inline-code">bgimage</span> support will be availible.</p>
 
             <h1 id="a_bindings"> Bindings </h1>
 
