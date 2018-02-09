@@ -147,11 +147,11 @@ print somerow.getDefaultAttribute("bgcolor")
             <span class="inline-code">"holdEnd"</span></span></p>
             <p>Before you add an event listener to a button you must retrieve it using the controller and button ids.</p>
             <xmp class="prettyprint"><controller id="mycontroller">
-    <row btnid="mybutton">
-        <text>Tap me!</text>
+    <row>
+        <button id="mybutton"><text>Tap me!</text></button>
     </row>
 </controller></xmp>
-            <xmp class="prettyprint">button = jiro.getButton("mycontroller", "mybutton")</xmp>
+            <xmp class="prettyprint">button = jiro.getInteractable("mycontroller", "mybutton")</xmp>
             <p>Now that that's done you should be able to add event listeners. </p>
             <p>To add an event listener call the <span class="inline-code">addEventListener</span> function with the event type and a callback.</p>
             <xmp class="prettyprint">button.addEventListener("eventType", callback)</xmp>
@@ -160,7 +160,18 @@ print somerow.getDefaultAttribute("bgcolor")
     print event.player.displayName + " just tapped me!"
 
 button.addEventListener("tap", tapEvent)</xmp>
-        </div>
+
+            <h2 id="a_accel">Accelerometer Events</h2>
+
+            <p>Before you can add accelerometer events, you must retrieve an interactable instance of your controller.</p>
+            <xmp class="prettyprint"><controller id="mycontroller" interact-accelerometer> ... </controller></xmp>
+            <xmp class="prettyprint">mycontroller = jiro.getInteractable("mycontroller")</xmp>
+            <p> To add an event that checks for a change in the accelerometer, use the following code. </p>
+            <xmp class="prettyprint">def accelerometerChange(event):
+    # TODO
+
+mycontroller.addEventListener("accelerometerChange", accelerometerChange)</xmp>
+        </div><br><br>
 
     </main>
     <div id="topButton">

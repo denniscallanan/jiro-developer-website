@@ -42,6 +42,11 @@
                 <a href="#a_cell_props"><div> More Cell Properties</div></a>
             </div>
             <div class="section">
+                <a href="#a_interactions"><h1> Interactions </h1></a>
+                <a href="#a_buttnteractions"><div>Button interactions</div></a>
+                <a href="#a_accel"><div>Accelerometer interactions</div></a>
+            </div>
+            <div class="section">
                 <a href="#a_bindings"><h1> Bindings </h1></a>
                 <a href="#a_get_bindings"><div> Get Bindings </div></a>
                 <a href="#a_set_bindings"><div> Set Bindings </div></a>
@@ -100,17 +105,18 @@
 
             <p> Default values:</p>
             <ul>
-                <li><span class="inline-code">size=""</span> </li>
-                <li><span class="inline-code">weight=""</span> </li>
+                <li><span class="inline-code">size="DENNIS TELL ME!"</span> </li>
+                <li><span class="inline-code">weight="regular"</span> </li>
                 <li><span class="inline-code">color="#000000"</span> (black)</li>
             </ul>
 
             <h2 id="a_buttons"> Buttons </h2>
 
-            <p> Any cell can be turned into a button by simply adding a button id. </p>
+            <p> To add a button use the button tag inside of a cell and add a button id.</p>
 
-            <xmp class="prettyprint"><row btnid="mybutton1"> ... </row></xmp>
-            <xmp class="prettyprint"><col btnid="mybutton2"> ... </col></xmp>
+            <xmp class="prettyprint"><row>
+    <button id="myButton"> <text> This is a button </text> </button>
+</row></xmp>
 
             <p> The API allows you to hook up click handlers to a button id. </p>
 
@@ -126,9 +132,9 @@
 
             <p> You must use the API to bind <span class="inline-code">src</span> to an image file. </p>
 
-            <p class="future"><span> You can set <span class="inline-code">stretch="cell"</span> to make the image match its cell size. </span></p> 
+            <p class="future"><span> You can set <span class="inline-code">scalerel="cell"</span> to make the image scale relative to its cell size instead of the default <span class="inline-code">scalerel="image"</span> which is relative to the image size. </span></p> 
 
-            <p> Images will always keep their aspect ratio, even if they are stretched. </p>
+            <p> Images will always keep their aspect ratio. </p>
 
             <h2 id="a_cell_props">More Cell Properties</h2>
 
@@ -151,6 +157,38 @@
             <p> You can use the border attributes to add a border to a cell:</p>
 
             <xmp class="prettyprint"><row bordersize="1" bordercolor="#eee"> ... </row></xmp>
+
+            <h1 id="a_interactions"> Interactions </h1>
+
+            <p> Interactions allow you to add event listeners to elements in your controller using the API. </p>
+
+            <p> To make any element interactable, simply add an <span class="inline-code">id</span> attribute.</p>
+            
+            <xmp class="prettyprint"><row id="someRowID"> ... </row></xmp>
+            
+            <xmp class="prettyprint"><button id="someButtonID"> ... </button></xmp>
+
+            <h2 id="a_buttnteractions"> Button Interactions </h2>
+
+            <p> To add button interactions to an element, add the <span class="inline-code">interact-btn</span> attribute.</p>
+
+            <xmp class="prettyprint"><col id="button" interact-btn> ... </col></xmp>
+
+            <p> This allows you to handle button related events such as <span class="inline-code">tapStart</span> or <span class="inline-code">tapEnd</span> using the API.</p>
+
+            <p> If you are using the <span class="inline-code">button</span> element, button interactions will already be there so there is no need to add the <span class="inline-code">interact-btn</span> attribute.</p>
+
+            <p> <i>FAQ: What is the difference between using a button element and adding a button interaction to a cell? </i> The only difference is that the button element shows a visual button on the screen.</p>
+
+            <h2 id="a_accel">Accelerometer Interactions</h2>
+
+            <p> Add the <span class="inline-code">interact-accelerometer</span> attribute to your controller to add accelerometer related events.</p>
+
+            <xmp class="prettyprint"><controller id="main" interact-accelerometer> ... </controller></xmp>
+
+            <p> Your phone will now automatically send accelerometer data to the API which you can use.</p>
+
+            <p>LINK::See the API for more.</p>
 
             <h1 id="a_bindings"> Bindings </h1>
 
