@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Getting Started - Your First Jiro App - Jiro Developers</title>
+    <link rel="stylesheet" type="text/css" href="/static/fonts/nova/fonts.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/devheader.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/login.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/docs.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/top.css">
+    <!--<link href="/static/css/github.css" rel="stylesheet" type="text/css">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div id="login">
+        <h2> Login </h2>
+        <input type="text" placeholder="Username" id="username">
+        <input type="password" placeholder="Password" id="password">
+        <button class="login">Login</button>
+        <button class="register">Register</button>
+    </div>
+    <div id="devheader-wrapper">
+        <div id="devheader">
+            <a href="//www.jiroplay.com">
+                <img src="/static/img/back.png">
+            </a>
+            <h1>
+                <span>Jiro</span> Developers</h1>
+            <h2 id="loginButton" onclick="toggleLogin();"> Login </h2>
+            <div>
+                <a href="/">
+                    <div> Home </div></a>
+                <a href="/docs">
+                    <div class="selected"> Docs </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <main class="container">
+        <h2> Documentation </h2>
+        <div class="docs-list">
+            <div class="section">
+                <a href="#a_">
+                    <h1> Getting Started </h1>
+                </a>
+                <a href="#a_setup">
+                    <div> Creating a New App </div>
+                </a>
+            </div>
+            <div class="section">
+                <a href="/docs">
+                    <h1>Learning Jiro</h1>
+                </a>
+                <a href="/docs/python-api">
+                    <div> Python API </div>
+                </a>
+                <a href="/docs/controller">
+                    <div> XML Controllers </div>
+                </a>
+            </div>
+        </div>
+        <div class="docs-content">
+            <h1 id="a_"> Getting Started </h1>
+            <h2 id="a_setup">Creating a New App</h2>
+            <p> Before you create a Jiro app you must download the Jiro console on your computer, and the Jiro controller on your phone.</p>
+            <p> Next, open up the Jiro installation directory on your computer, and open the <span class="inline-code">apps</span> folder.</p>
+            <p> Create a new folder for your app. We recommend the following naming convention: <span class="inline-code">authorName.appName</span></p>
+            <p> Inside this folder, create a new file called <span class="inline-code">japp.json</span>. This file will store info about your app:</p>
+            <xmp class="prettyprint">{
+    "name": "The name of your app",
+    "author": "The author of your app",
+    "iconUrl": "http://some.url.com/for-your-icon.png",
+    "run": "app.py"
+}</xmp> 
+            <p> Change <span class="inline-code">"run"</span> to the name of the file that you would like to be executed to start your app. This may be a python file at first, but when your game is being submitted it will be an <span class="inline-code">.exe</span> file.</p>
+            <br><br>
+            <p>That's it! You're ready to create your first app! See the links under the <b>Learning Jiro</b> section on the left to learn how to integrate jiro with your app.</p><br><br>
+        </div>
+        <br>
+        <br>
+
+    </main>
+    <div id="topButton">
+        TOP
+    </div>
+    <!--<script src="/static/js/rainbow-xml.min.js"></script>-->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=python&lang=xml"></script>
+</body>
+<script src="/static/js/login.js"></script>
+<script src="/static/js/scrolly-docs.js"></script>
+<script src="/static/js/scrolly-top.js"></script>
+
+</html>

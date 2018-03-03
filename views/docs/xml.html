@@ -39,19 +39,19 @@
                 <a href="#a_text"><div> Text </div></a>
                 <a href="#a_buttons"><div> Buttons </div></a>
                 <a href="#a_images"><div> Images </div></a>
-                <a href="#a_cell_props"><div> More Cell Properties</div></a>
+                <a href="#a_cell_props"><div>Styling</div></a>
             </div>
             <div class="section">
                 <a href="#a_interactions"><h1> Interactions </h1></a>
-                <a href="#a_buttnteractions"><div>Button interactions</div></a>
-                <a href="#a_accel"><div>Accelerometer interactions</div></a>
+                <!--<a href="#a_buttnteractions"><div>Button interactions</div></a>
+                <a href="#a_accel"><div>Accelerometer interactions</div></a>-->
             </div>
-            <div class="section">
+            <!--<div class="section">
                 <a href="#a_bindings"><h1> Bindings </h1></a>
                 <a href="#a_get_bindings"><div> Get Bindings </div></a>
                 <a href="#a_set_bindings"><div> Set Bindings </div></a>
                 <a href="#a_twoway_bindings"><div> Two-way Bindings </div></a>
-            </div>
+            </div>-->
         </div>
         <div class="docs-content">
             <h1 id="a_controller"> XML Controller </h1>
@@ -69,7 +69,7 @@
 
             <h2 id="a_rows_columns">Rows & Columns</h2> 
 
-            <p> Rows and columns are used to position elements and change the size of their contents. Rows and columns can be nested.</p>
+            <p> Rows and columns are used to position elements and change the size of their contents. They can be nested.</p>
             
             <p> The span of each row or column defaults to a weight of 1, but you can change this using the span tag. </p>
 
@@ -87,7 +87,7 @@
     </row>
 </controller></xmp>
 
-            <p> On rows you can also set <span class="inline-code">span="content"</span> which sets its height to the height of its content.<br>This feature will be also added to columns in the future.</p>
+            <span class="future"><p> On rows you can also set <span class="inline-code">span="content"</span> which sets its height to the height of its content.<br>This feature will be also added to columns in the future.</p></span>
 
             <h2 id="a_text"> Text </h2>
 
@@ -118,49 +118,49 @@
     <button id="myButton"> <text> This is a button </text> </button>
 </row></xmp>
 
-            <p> The API allows you to hook up click handlers to a button id. </p>
+            <p> The API allows you to hook up tap handlers to buttons and other elements. <a href="/docs/python-api#a_button_events" target="_blank">See here.</a></p>
 
             <h2 id="a_images"> Images </h2>
 
-            <p> Images are very easy to add. They stay centered inside its cell and you can use the scale attribute to change its size. </p>
+            <p> Images are very easy to add. They stay centered inside its cell and you can use the scale attribute to change their sizes. </p>
 
             <xmp class="prettyprint"><controller id="main">
     <row>
-        <img src="myimage" scale="0.5"></img>
+        <img src="http://some.link.com/to-an-image.png" scale="0.5"></img>
     </row>
 </controller></xmp>
 
-            <p> You must use the API to bind <span class="inline-code">src</span> to an image file. </p>
+            <!--<p> You must use the API to bind <span class="inline-code">src</span> to an image file. </p>-->
 
             <p class="future"><span> You can set <span class="inline-code">scalerel="cell"</span> to make the image scale relative to its cell size instead of the default <span class="inline-code">scalerel="image"</span> which is relative to the image size. </span></p> 
 
             <p> Images will always keep their aspect ratio. </p>
 
-            <h2 id="a_cell_props">More Cell Properties</h2>
+            <h2 id="a_cell_props">Styling</h2>
 
-            <p> You can set the background color of a cell by doing the following:</p>
+            <p> Add a background color to a cell:</p>
 
             <xmp class="prettyprint"><row bgcolor="#eee"> ... </row></xmp>
 
-            <div class="future"><p> You can also set a background image: </p>
+            <div class="future"><p> Add a background image to a cell: </p>
 
             <xmp class="prettyprint"><row bgimage="image"> ... </row></xmp></div>
 
-            <p> To add padding to a cell simply do the following:</p>
+            <p>  Add padding to a cell:</p>
 
             <xmp class="prettyprint"><col padding="4"> ... </col></xmp>
 
-            <p> You can set the padding for individual sides aswell (top, left, bottom, right): </p>
+            <p> You can set the padding for individual sides aswell (top, left, bottom, right) </p>
 
             <xmp class="prettyprint"><col padding="4 0 2 0"> ... </col></xmp>
 
-            <p> You can use the border attributes to add a border to a cell:</p>
+            <p>Add a border to a cell:</p>
 
-            <xmp class="prettyprint"><row bordersize="1" bordercolor="#eee"> ... </row></xmp>
+            <xmp class="prettyprint"><row bordersize="1" bordercolor="#00ff00"> ... </row></xmp>
 
             <h1 id="a_interactions"> Interactions </h1>
 
-            <p> Interactions allow you to add event listeners to elements in your controller using the API. </p>
+            <p> Interactions allow you to add event listeners to elements in your controller <a href="/docs/python-api#a_events" target="_blank">using the API</a>. </p>
 
             <p> To make any element interactable, simply add an <span class="inline-code">id</span> attribute.</p>
             
@@ -168,7 +168,7 @@
             
             <xmp class="prettyprint"><button id="someButtonID"> ... </button></xmp>
 
-            <h2 id="a_buttnteractions"> Button Interactions </h2>
+            <!--<h2 id="a_buttnteractions"> Button Interactions </h2>
 
             <p> To add button interactions to an element, add the <span class="inline-code">interact-btn</span> attribute.</p>
 
@@ -188,9 +188,9 @@
 
             <p> Your phone will now automatically send accelerometer data to the API which you can use.</p>
 
-            <p>LINK::See the API for more.</p>
+            <p>LINK::See the API for more.</p>-->
 
-            <h1 id="a_bindings"> Bindings </h1>
+            <!--<h1 id="a_bindings"> Bindings </h1>
 
             <h2 id="a_get_bindings"> Get Bindings </h2>
 
@@ -237,11 +237,11 @@
 </col></xmp>
         <xmp class="prettyprint"><col>
     <text binding="my_second_two_way_binding"> This is some readable and modifiable text </text>
-</col></xmp>     
+</col></xmp>     -->
 
             <br><br>
 
-            <p> You've reached the end of this article and should now have learned everything you need know to create a controller for your Jiro game! </p>
+            <p> You've reached the end of this article and should now have learned everything you need know to create a controller for your Jiro app! </p>
 
             <br><br>
 

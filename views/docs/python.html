@@ -36,39 +36,59 @@
             <div class="section">
                 <a href="#a_"><h1> Python API </h1></a>
                 <a href="#a_setup"><div> Getting Started </div></a>
-                <a href="#a_server_options"><div> Server options</div></a>
+                <!--<a href="#a_server_options"><div> Server options</div></a>-->
+                <a href="#a_server_events"><div>Server Events</div></a>
             </div>
             <div class="section">
                 <a href="#a_controllers"><h1>Controllers</h1></a>
                 <a href="#a_importing_controllers"><div> Importing controllers </div></a>
                 <a href="#a_switching_controllers"><div> Switching controllers </div></a>
             </div>
-            <div class="section">
+            <!--<div class="section">
                 <a href="#a_bindings"><h1> Controller bindings</h1></a>
                 <a href="#a_set_bindings"><div>Set bindings</div></a>
                 <a href="#a_get_bindings"><div>Get bindings</div></a>
                 <a href="#a_two_way_bindings"><div>Two-way bindings</div></a>
-            </div>
+            </div>-->
             <div class="section">
-                <a href="#a_events"><h1> Event handlers</h1></a>
+                <a href="#a_events"><h1> Controller Events</h1></a>
+                <a href="#a_interactables"><div> Interactables </div></a>
                 <a href="#a_button_events"><div>Button events</div></a>
+                <a href="#a_accel"><div>Accelerometer events</div></a>
             </div>
         </div>
         <div class="docs-content">
             <h1 id="a_"> Python API </h1>
             <h2 id="a_setup">Getting Started</h2>
-            <p>Once you've downloaded the API for python you should be able to import the module:</p>
+            <p>Once you've downloaded the API for python you should be able to import it:</p>
             <xmp class="prettyprint">import jgsapi</xmp>
-            <p>You must now create a game server that your phone can connect to.</p>
+            <p>The first thing you need to do is create a game server that your phone can connect to.</p>
             <xmp class="prettyprint">jiro = jgsapi.GameServer()</xmp>
-            <p>That should be enough to connect to the game from your phone.</p>
-            <h2 id="a_server_options">Server options</h2>
+            <!--<div class="future"><h2 id="a_server_options">Server options</h2>
             <p>You can pass server options into the GameServer constructor.</p>
-            <xmp class="prettyprint">jiro = jgsapi.GameServer({'max-players': 8})</xmp>
+            <xmp class="prettyprint">jiro = jgsapi.GameServer({'max-players': 8})</xmp></div>-->
+
+            <h2 id="a_server_events">Server Events</h2>
+
+            <p>There are 3 server events that you can listen for. To add an event, you can use the <span class="inline-code">GameServer.event</span> decorator.</p>
+            <p><b>1. <span class="inline-code">onPlayerJoin</span></b></p>
+            <xmp class="prettyprint">@jiro.event
+def onPlayerJoin(event):
+    print jiro.getPlayerName(event.addr), "joined the game!"</xmp>
+            <p><b>2. <span class="inline-code">onPlayerLeave</span></b></p>
+            <xmp class="prettyprint">@jiro.event
+def onPlayerLeave(event):
+    print jiro.getPlayerName(event.addr), "left the game!"</xmp>
+            <p><b>3.<span class="inline-code">cleanup</span></b></p>
+            <xmp class="prettyprint">@jiro.event
+def cleanup():
+    print "The game is being stopped!"
+    # This is where you can close any windows, files, etc. before the game exits</xmp>
+
             <h1 id="a_controllers"> Controllers </h1>
             <h2 id="a_importing_controllers">Importing controllers</h2>
             <p> Jiro uses XML files to create controllers. </p>
-            <p> If you haven't created a controller yet you can follow the tutorial LINK::here</p>
+            <p> If you haven't created a controller yet you can follow the tutorial <a href="/docs/controller" target="_blank">here</a></p>
             <p> Assuming your controllers are in the "controllers" directory, you can import them by doing the following:</p>
             <xmp class="prettyprint">jiro.importController("controllers/mycontroller1.xml")
 jiro.importController("controllers/mycontroller2.xml")
@@ -80,7 +100,7 @@ jiro.importController("controllers/mycontroller2.xml")
             <p> You can also change the controller of a specific player or a list of players.</p>
             <xmp class="prettyprint">jiro.switchController("mycontroller1", somePlayer)
 jiro.switchController("mycontroller2", [somePlayer, someOtherPlayer, anotherPlayer])</xmp>
-            <h1 id="a_bindings"> Controller bindings </h1>
+            <!--<h1 id="a_bindings"> Controller bindings </h1>
             <p> Your controllers may contain bindings. </p>
             <p> Get bindings allow you to retrieve xml information from your controller and set bindings allow you to modify the attributes and content of controller elements.</p>
             <p> Link::Click here to learn how controller bindings work in XML.</p> 
@@ -131,46 +151,49 @@ print somerow.getDefaultAttribute("bgcolor")
             <p>You can both get and set data with two-way bindings.</p>
             <p>Look at get bindings and set bindings above for examples.</p>
             
-</xmp>
+</xmp>-->
 
-            <h1 id="a_events"> Event handlers</h1>
-            <p> Event handlers are very important when you are creating games. </p>
-            <p> The Jiro API contains many events that you can listen to.</p>
+            <h1 id="a_events"> Controller Events </h1>
+            <!--<p> Event handlers are very important when you are creating games. </p>
+            <p> The Jiro API contains many events that you can listen to.</p>-->
             <!--<p> To add an event listener call the <span class="inline-code">addEventListener</span> function with an event type and a callback.</p>
             <xmp class="prettyprint">jiro.addEventListener("eventName", callback)</xmp>-->
-            <h2 id="a_button_events">Button Events</h2>
-            <p> There are 5 events available for buttons:</p>
-            <p><span class="inline-code">"tap"</span>
-            <span class="inline-code">"tapStart"</span>
-            <span class="inline-code">"tapEnd"</span>
-            <span class="future"><span class="inline-code">"holdStart"</span>
-            <span class="inline-code">"holdEnd"</span></span></p>
-            <p>Before you add an event listener to a button you must retrieve it using the controller and button ids.</p>
-            <xmp class="prettyprint"><controller id="mycontroller">
-    <row>
-        <button id="mybutton"><text>Tap me!</text></button>
-    </row>
+            <h2 id="a_interactables"> Interactables </h2>
+            <p> Before you add an event listener to an element, you must make it interactable by giving it an id in the xml.</p>
+            <xmp class="prettyprint"><controller id="example">
+    <row id="test"> <text> This element can be interacted with! </text> </row>
 </controller></xmp>
-            <xmp class="prettyprint">button = jiro.getInteractable("mycontroller", "mybutton")</xmp>
-            <p>Now that that's done you should be able to add event listeners. </p>
-            <p>To add an event listener call the <span class="inline-code">addEventListener</span> function with the event type and a callback.</p>
-            <xmp class="prettyprint">button.addEventListener("eventType", callback)</xmp>
-            <p> Example: </p>
-            <xmp class="prettyprint">def tapEvent(event):
-    print event.player.displayName + " just tapped me!"
+            <p> To retrieve an interactable use the following code: </p>
+            <xmp class="prettyprint">example_controller = jiro.getController("example")
+test = example_controller.getInteractable("test")</xmp>
+            <h2 id="a_button_events">Button events</h2>
+            <p> There are 2 events available for buttons:</p>
+            <p><span class="inline-code">"tapStart"</span>
+            <span class="inline-code">"tapEnd"</span>
+            <!--<span class="future"><span class="inline-code">"holdStart"</span>
+            <span class="inline-code">"holdEnd"</span></span>--></p>
+            <p> To add an event listener, use the <span class="inline-code">Interactable.event</span> decorator:</p>
+            <xmp class="prettyprint">example_controller = jiro.getController("example")
+test = example_controller.getInteractable("test")
 
-button.addEventListener("tap", tapEvent)</xmp>
+@test.event
+def tapStart(event):
+    print "handling tapStart event..."
 
-            <h2 id="a_accel">Accelerometer Events</h2>
+@test.event
+def tapEnd(event):
+    print "handling tapEnd event..."
+</xmp>
 
-            <p>Before you can add accelerometer events, you must retrieve an interactable instance of your controller.</p>
-            <xmp class="prettyprint"><controller id="mycontroller" interact-accelerometer> ... </controller></xmp>
-            <xmp class="prettyprint">mycontroller = jiro.getInteractable("mycontroller")</xmp>
-            <p> To add an event that checks for a change in the accelerometer, use the following code. </p>
-            <xmp class="prettyprint">def accelerometerChange(event):
-    # TODO
+            <h2 id="a_accel">Accelerometer events</h2>
 
-mycontroller.addEventListener("accelerometerChange", accelerometerChange)</xmp>
+            <p>To add an accelerometer event, you can use the <span class="inline-code">Controller.event</span> decorator:</p>
+            <xmp class="prettyprint"><controller id="mycontroller"> ... </controller></xmp>
+            <xmp class="prettyprint">mycontroller = jiro.getController("mycontroller")
+
+@mycontroller.event
+def accelerometer(event):
+    print event.x, event.y, event.z</xmp>
         </div><br><br>
 
     </main>
