@@ -1,7 +1,11 @@
 {
-  "name": "JiroDevelopers",
+  "name": "jirodevelopers",
   "version": "0.0.1",
   "engines": {
     "node": "6.11.3"
+  },
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
   }
 }
